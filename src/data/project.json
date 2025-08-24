@@ -32,7 +32,7 @@
   },
   {
     "id": 2,
-    "title": "Medicare",
+    "title": "Safrenz",
     "mainImage": "/img/project/project_safrenz.png",
     "info": [
       { "label": "Client", "value": "Dr. Aulia" },
@@ -63,7 +63,7 @@
   },
   {
     "id": 3,
-    "title": "EduTrack",
+    "title": "Wedding Invitation",
     "mainImage": "/img/project/project_invitation.png",
     "info": [
       { "label": "Client", "value": "EduNation" },
@@ -87,6 +87,37 @@
       {
         "title": "Stack",
         "image": "/img/project/card_invitation3.png",
+        "reverse": true,
+        "description": "Developed using Laravel, Vue.js, PostgreSQL, and integrated with video streaming services."
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Traveloop",
+    "mainImage": "/img/project/project_traveloop.png",
+    "info": [
+      { "label": "Client", "value": "EduNation" },
+      { "label": "Platform", "value": "Web Platform" },
+      { "label": "Timeline", "value": "2023–2024" },
+      { "label": "Website", "value": "asdasd" }
+    ],
+    "sections": [
+      {
+        "title": "About The Project",
+        "image": "/img/project/card_traveloop1.png",
+        "reverse": true,
+        "description": "EduTrack is an LMS (Learning Management System) platform developed to help institutions track student learning progress and deliver online courses."
+      },
+      {
+        "title": "Feature",
+        "image": "/img/project/card_traveloop2.png",
+        "reverse": false,
+        "description": "Core features include course management, video lessons, quizzes, progress tracking, and discussion forums."
+      },
+      {
+        "title": "Stack",
+        "image": "/img/project/card_traveloop3.png",
         "reverse": true,
         "description": "Developed using Laravel, Vue.js, PostgreSQL, and integrated with video streaming services."
       }

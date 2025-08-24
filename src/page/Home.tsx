@@ -7,6 +7,7 @@ import OurClient from "../component/section/OurClient";
 import Testimonial from "../component/section/Testimonial";
 import Header from "../component/layout/Header";
 import AboutUs from "../component/section/AboutUs";
+import Solution from "../component/section/Solution";
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
       <WhatWeDo />
       <OurClient />
       <Project />
+      <Solution />
       <Testimonial />
       <Footer />
     </>

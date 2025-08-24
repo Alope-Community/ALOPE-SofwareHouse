@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "slug": "mengenal-react-dari-nol",
+    "image": "/img/blogheader.png",
+    "tag": "Frontend",
+    "title": "Mengenal React dari Nol",
+    "content": "Ini adalah konten lengkap mengenai React dari nol. Kamu akan belajar tentang komponen, state, props, dan lainnya."
+  },
+  {
+    "id": 2,
+    "slug": "belajar-nodejs-dan-express",
+    "image": "/img/blogheader.png",
+    "tag": "Backend",
+    "title": "Belajar Node.js dan Express",
+    "content": "Artikel ini membahas dasar-dasar Node.js dan bagaimana membangun backend dengan Express.js."
+  },
+  {
+    "id": 3,
+    "slug": "tren-teknologi-2025",
+    "image": "/img/blogheader.png",
+    "tag": "Technology",
+    "title": "Tren Teknologi 2025",
+    "content": "Tren teknologi tahun 2025 diprediksi akan didominasi oleh AI, IoT, dan blockchain."
+  },
+  {
+    "id": 4,
+    "slug": "mengoptimalkan-tailwind-css",
+    "image": "/img/blogheader.png",
+    "tag": "Frontend",
+    "title": "Mengoptimalkan Tailwind CSS",
+    "content": "Tailwind CSS adalah utility-first framework yang sangat fleksibel untuk styling komponen UI."
+  },
+  {
+    "id": 5,
+    "slug": "api-rest-vs-graphql",
+    "image": "/img/blogheader.png",
+    "tag": "Backend",
+    "title": "API REST vs GraphQL",
+    "content": "REST dan GraphQL adalah dua pendekatan dalam membangun API. Keduanya punya kelebihan dan kekurangan masing-masing."
+  },
+  {
+    "id": 6,
+    "slug": "apa-itu-ai-dan-machine-learning",
+    "image": "/img/blogheader.png",
+    "tag": "Technology",
+    "title": "Apa itu AI dan Machine Learning?",
+    "content": "AI dan Machine Learning adalah bagian dari teknologi cerdas yang mampu belajar dan mengambil keputusan."
+  }
+]

@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "title": "Mengenal React Dari Nol",
+    "category": "Frontend",
+    "image": "/img/blogheader.png",
+    "author": "Firdan Fauzan",
+    "date": "20/07/2025",
+    "content": "Lorem ipsum dolor sit amet consectetur. Aliquam cursus eu vulputate libero leo aliquam. Sapien sit feugiat etiam sapien commodo. Dictum ut viverra auctor turpis volutpat leo viverra. Amet nunc et mauris lectus adipiscing. Sed amet egestas consequat hac scelerisque lectus eget velit. Nibh convallis nunc a in mi. Ut lectus mattis non posuere. In erat non integer mollis lorem nunc. Ut ut nisl diam tellus molestie in nisl hendrerit in. Orci sed vivamus turpis lacinia eget facilisis. Convallis diam dignissim praesent imperdiet faucibus auctor integer. Malesuada vulputate ultricies bibendum dolor adipiscing tellus eget in. Tristique dictum tellus sit imperdiet at et. Id mi id venenatis luctus risus nulla. Lobortis magnis pellentesque viverra volutpat diam pellentesque eget a arcu. At et at lectus mattis nisi egestas. Dui nunc at mattis phasellus. Nibh ac pellentesque cursus pellentesque ac senectus vulputate at nibh. Duis ante viverra vitae malesuada at mauris fermentum mauris consequat."
+  },
+  {
+    "id": 2,
+    "title": "Belajar Node.js dan Express",
+    "category": "Backend",
+    "image": "/img/blogheader.png",
+    "author": "Firdan Fauzan",
+    "date": "21/07/2025",
+    "content": "Lorem ipsum dolor sit amet consectetur. Aliquam cursus eu vulputate libero leo aliquam. Sapien sit feugiat etiam sapien commodo. Dictum ut viverra auctor turpis volutpat leo viverra. Amet nunc et mauris lectus adipiscing. Sed amet egestas consequat hac scelerisque lectus eget velit. Nibh convallis nunc a in mi. Ut lectus mattis non posuere. In erat non integer mollis lorem nunc. Ut ut nisl diam tellus molestie in nisl hendrerit in. Orci sed vivamus turpis lacinia eget facilisis. Convallis diam dignissim praesent imperdiet faucibus auctor integer. Malesuada vulputate ultricies bibendum dolor adipiscing tellus eget in. Tristique dictum tellus sit imperdiet at et. Id mi id venenatis luctus risus nulla. Lobortis magnis pellentesque viverra volutpat diam pellentesque eget a arcu. At et at lectus mattis nisi egestas. Dui nunc at mattis phasellus. Nibh ac pellentesque cursus pellentesque ac senectus vulputate at nibh. Duis ante viverra vitae malesuada at mauris fermentum mauris consequat."
+  },
+  {
+    "id": 3,
+    "title": "Tren Teknologii 2025",
+    "category": "Technology",
+    "image": "/img/blogheader.png",
+    "author": "Firdan Fauzan",
+    "date": "22/07/2025",
+    "content": "Lorem ipsum dolor sit amet consectetur. Aliquam cursus eu vulputate libero leo aliquam. Sapien sit feugiat etiam sapien commodo. Dictum ut viverra auctor turpis volutpat leo viverra. Amet nunc et mauris lectus adipiscing. Sed amet egestas consequat hac scelerisque lectus eget velit. Nibh convallis nunc a in mi. Ut lectus mattis non posuere. In erat non integer mollis lorem nunc. Ut ut nisl diam tellus molestie in nisl hendrerit in. Orci sed vivamus turpis lacinia eget facilisis. Convallis diam dignissim praesent imperdiet faucibus auctor integer. Malesuada vulputate ultricies bibendum dolor adipiscing tellus eget in. Tristique dictum tellus sit imperdiet at et. Id mi id venenatis luctus risus nulla. Lobortis magnis pellentesque viverra volutpat diam pellentesque eget a arcu. At et at lectus mattis nisi egestas. Dui nunc at mattis phasellus. Nibh ac pellentesque cursus pellentesque ac senectus vulputate at nibh. Duis ante viverra vitae malesuada at mauris fermentum mauris consequat."
+  },
+  {
+    "id": 4,
+    "title": "Mengoptimalkan Tailwind CSS",
+    "category": "Frontend",
+    "image": "/img/blogheader.png",
+    "author": "Firdan Fauzan",
+    "date": "23/07/2025",
+    "content": "Lorem ipsum dolor sit amet consectetur. Aliquam cursus eu vulputate libero leo aliquam. Sapien sit feugiat etiam sapien commodo. Dictum ut viverra auctor turpis volutpat leo viverra. Amet nunc et mauris lectus adipiscing. Sed amet egestas consequat hac scelerisque lectus eget velit. Nibh convallis nunc a in mi. Ut lectus mattis non posuere. In erat non integer mollis lorem nunc. Ut ut nisl diam tellus molestie in nisl hendrerit in. Orci sed vivamus turpis lacinia eget facilisis. Convallis diam dignissim praesent imperdiet faucibus auctor integer. Malesuada vulputate ultricies bibendum dolor adipiscing tellus eget in. Tristique dictum tellus sit imperdiet at et. Id mi id venenatis luctus risus nulla. Lobortis magnis pellentesque viverra volutpat diam pellentesque eget a arcu. At et at lectus mattis nisi egestas. Dui nunc at mattis phasellus. Nibh ac pellentesque cursus pellentesque ac senectus vulputate at nibh. Duis ante viverra vitae malesuada at mauris fermentum mauris consequat."
+  },
+  {
+    "id": 5,
+    "title": "API Rest vs GraphQL",
+    "category": "Backend",
+    "image": "/img/blogheader.png",
+    "author": "Firdan Fauzan",
+    "date": "24/07/2025",
+    "content": "Lorem ipsum dolor sit amet consectetur. Aliquam cursus eu vulputate libero leo aliquam. Sapien sit feugiat etiam sapien commodo. Dictum ut viverra auctor turpis volutpat leo viverra. Amet nunc et mauris lectus adipiscing. Sed amet egestas consequat hac scelerisque lectus eget velit. Nibh convallis nunc a in mi. Ut lectus mattis non posuere. In erat non integer mollis lorem nunc. Ut ut nisl diam tellus molestie in nisl hendrerit in. Orci sed vivamus turpis lacinia eget facilisis. Convallis diam dignissim praesent imperdiet faucibus auctor integer. Malesuada vulputate ultricies bibendum dolor adipiscing tellus eget in. Tristique dictum tellus sit imperdiet at et. Id mi id venenatis luctus risus nulla. Lobortis magnis pellentesque viverra volutpat diam pellentesque eget a arcu. At et at lectus mattis nisi egestas. Dui nunc at mattis phasellus. Nibh ac pellentesque cursus pellentesque ac senectus vulputate at nibh. Duis ante viverra vitae malesuada at mauris fermentum mauris consequat."
+  },
+  {
+    "id": 6,
+    "title": "Apa itu AI dan Machine Learning",
+    "category": "Technology",
+    "image": "/img/blogheader.png",
+    "author": "Firdan Fauzan",
+    "date": "25/07/2025",
+    "content": "Lorem ipsum dolor sit amet consectetur. Aliquam cursus eu vulputate libero leo aliquam. Sapien sit feugiat etiam sapien commodo. Dictum ut viverra auctor turpis volutpat leo viverra. Amet nunc et mauris lectus adipiscing. Sed amet egestas consequat hac scelerisque lectus eget velit. Nibh convallis nunc a in mi. Ut lectus mattis non posuere. In erat non integer mollis lorem nunc. Ut ut nisl diam tellus molestie in nisl hendrerit in. Orci sed vivamus turpis lacinia eget facilisis. Convallis diam dignissim praesent imperdiet faucibus auctor integer. Malesuada vulputate ultricies bibendum dolor adipiscing tellus eget in. Tristique dictum tellus sit imperdiet at et. Id mi id venenatis luctus risus nulla. Lobortis magnis pellentesque viverra volutpat diam pellentesque eget a arcu. At et at lectus mattis nisi egestas. Dui nunc at mattis phasellus. Nibh ac pellentesque cursus pellentesque ac senectus vulputate at nibh. Duis ante viverra vitae malesuada at mauris fermentum mauris consequat."
+  },
+  {
+    "id": 7,
+    "title": "Apa itu AI dan Machine Learning",
+    "category": "Frontend",
+    "image": "/img/blogheader.png",
+    "author": "Firdan Fauzan",
+    "date": "25/07/2025",
+    "content": "Lorem ipsum dolor sit amet consectetur. Aliquam cursus eu vulputate libero leo aliquam. Sapien sit feugiat etiam sapien commodo. Dictum ut viverra auctor turpis volutpat leo viverra. Amet nunc et mauris lectus adipiscing. Sed amet egestas consequat hac scelerisque lectus eget velit. Nibh convallis nunc a in mi. Ut lectus mattis non posuere. In erat non integer mollis lorem nunc. Ut ut nisl diam tellus molestie in nisl hendrerit in. Orci sed vivamus turpis lacinia eget facilisis. Convallis diam dignissim praesent imperdiet faucibus auctor integer. Malesuada vulputate ultricies bibendum dolor adipiscing tellus eget in. Tristique dictum tellus sit imperdiet at et. Id mi id venenatis luctus risus nulla. Lobortis magnis pellentesque viverra volutpat diam pellentesque eget a arcu. At et at lectus mattis nisi egestas. Dui nunc at mattis phasellus. Nibh ac pellentesque cursus pellentesque ac senectus vulputate at nibh. Duis ante viverra vitae malesuada at mauris fermentum mauris consequat."
+  }
+]

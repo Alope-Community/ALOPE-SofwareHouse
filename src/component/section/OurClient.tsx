@@ -21,13 +21,8 @@ const OurClient = () => {
         backgroundPosition: "center",
       }}
     >
-        {/* <img
-            src="/img/Vector-kuning.svg"
-            className="absolute top-0 left-0 w-full h-full object-cover -z-10"
-            loading="lazy"
-          /> */}
-      <div className="container  mx-auto">
-        <div className="max-w-7xl px-3 sm:px-6 lg:px-8 text-center">
+      <div className="container mx-auto">
+        <div className="px-3 sm:px-6 lg:px-8 text-center">
           <p className="text-blue-600 font-medium text-2xl lg:text-3xl">
             Our Client
           </p>

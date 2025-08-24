@@ -94,6 +94,16 @@ const Navbar = () => {
               Blog
             </Link>
           </li>
+          {/* <li>
+                  <a href="#aboutUs" className="hover:underline">
+                    About Us
+                  </a>
+                </li>
+                <li>
+                  <a href="#ourWorks" className="hover:underline">
+                    Our Works
+                  </a>
+                </li> */}
           <li>
             <Link to="/explore" className="hover:underline">
               Explore
