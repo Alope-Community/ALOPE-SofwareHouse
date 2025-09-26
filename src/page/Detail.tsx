@@ -1,15 +1,43 @@
-import Navbar from "../component/layout/Navbar";
 import Footer from "../component/layout/Footer";
-import data from "../data/project.json";
+import Navbar from "../component/layout/Navbar";
+import SectionGrid from "../component/section/SectionGrid";
 import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 const Detail = () => {
   const { id } = useParams();
-  const project = data.find((p) => p.id === Number(id));
+  const [project, setProject] = useState<any | null>(null);
+  const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    if (!id) return;
+
+    const fetchProject = async () => {
+      try {
+        const respoonse = await fetch(
+          `http://127.0.0.1:8000/api/v1/projects/${id}`
+        );
+        const data = await respoonse.json();
+        console.log("API Response : ", data);
+        setProject(data.data || null);
+      } catch (err) {
+        console.error("Error fetching project:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProject();
+  }, [id]);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        Loading...
+      </div>
+    );
+  }
   if (!project) return <div>Project not found</div>;
-
-  const { title, mainImage, info, sections } = project;
 
   return (
     <>
@@ -45,91 +73,65 @@ const Detail = () => {
             </div>
             <div className="text-center mt-6">
               <h1 className="inline-block text-xl sm:text-3xl lg:text-4xl font-bold border-b-2 border-[#5998F4] pb-2">
-                {title}
+                {project.title}
               </h1>
             </div>
             <div className="space-y-4 text-sm sm:text-base text-center mt-10">
               <div className="flex flex-wrap justify-center gap-x-6 gap-y-6 lg:gap-x-12">
-                {info.map((item, index) => (
-                  <div
-                    key={index}
-                    className="flex flex-col items-center border-b-2 border-[#5998F4] px-2 w-fit pb-2"
-                  >
-                    <div>{item.label}</div>
-                    <div className="font-semibold mt-2">
-                      {item.label === "Website" ? (
-                        <a
-                          href={item.value}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {new URL(item.value).host}
-                        </a>
-                      ) : (
-                        item.value
-                      )}
+                {Object.entries(project.project_info || {}).map(
+                  ([key, value], index) => (
+                    <div
+                      key={index}
+                      className="flex flex-col items-center border-b-2 border-[#5998F4] px-2 w-fit pb-2"
+                    >
+                      <div className="capitalize">{key}</div>
+                      <div className="font-semibold mt-2">
+                        {key === "url" ? (
+                          <a
+                            href={value as string}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {new URL(value as string).host}
+                          </a>
+                        ) : (
+                          (value as string)
+                        )}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  )
+                )}
               </div>
             </div>
+
             <div className="bg-gradient-to-b from-[#5998F4] to-[#C8DDFB] p-4 pb-0 rounded-xl mt-10 hidden sm:block">
               <img
-                src={mainImage}
+                src={`http://127.0.0.1:8000/storage/${project.image}`}
                 alt="Main Project"
                 className="mx-auto w-full max-w-6xl object-cover mb-0"
               />
             </div>
 
             <p className="border-b-2 border-[#5998F4] w-40 sm:w-60 mx-auto mt-4 mb-6 hidden sm:block"></p>
-            {sections.map((section, index) => (
-              <div
-                key={index}
-                className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-10 mt-10"
-              >
-                {index % 2 === 0 ? (
-                  <>
-                    <div className="space-y-4 order-2 lg:order-1 w-full">
-                      <h2 className="text-lg sm:text-xl lg:text-2xl font-bold">
-                        {section.title}
-                      </h2>
-                      <p className="text-gray-600 text-justify text-sm sm:text-base">
-                        {section.description}
-                      </p>
-                    </div>
-                    <div className="w-full order-1 lg:order-2">
-                      <div className="bg-gradient-to-b from-[#5998F4] to-[#C8DDFB] p-4 rounded-xl pb-0">
-                        <img
-                          src={section.image}
-                          alt="Project Detail"
-                          className="rounded-t-md w-[500px] h-[280px] mt-8 mb-0 object-cover mx-auto"
-                        />
-                      </div>
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    <div className="w-full">
-                      <div className="bg-gradient-to-b from-[#5998F4] to-[#C8DDFB] p-4 rounded-xl pb-0">
-                        <img
-                          src={section.image}
-                          alt="Project Detail"
-                          className="rounded-t-md w-[500px] h-[280px] mt-8 mb-0 object-cover mx-auto"
-                        />
-                      </div>
-                    </div>
-                    <div className="space-y-4 w-full">
-                      <h2 className="text-lg sm:text-xl lg:text-2xl font-bold">
-                        {section.title}
-                      </h2>
-                      <p className="text-gray-600 text-justify text-sm sm:text-base">
-                        {section.description}
-                      </p>
-                    </div>
-                  </>
-                )}
-              </div>
-            ))}
+            <SectionGrid
+              items={[
+                project.about && {
+                  title: "About",
+                  description: project.about.description,
+                  image: `http://127.0.0.1:8000/storage/${project.about.image}`,
+                },
+                project.feature && {
+                  title: "Feature",
+                  description: project.feature.description,
+                  image: `http://127.0.0.1:8000/storage/${project.feature.image}`,
+                },
+                project.stack && {
+                  title: "Stack",
+                  description: project.stack.description,
+                  image: `http://127.0.0.1:8000/storage/${project.stack.image}`,
+                },
+              ].filter(Boolean)}
+            />
           </div>
         </div>
         <div className="relative h-[100px] overflow-visible">

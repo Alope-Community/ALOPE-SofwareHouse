@@ -1,18 +1,19 @@
 import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Navbar from "../component/layout/Navbar";
 import Footer from "../component/layout/Footer";
 
-import blogDetails from "../data/blogDetail.json";
-import recommendedBlogs from "../data/recommendedBlogs.json";
+// import blogDetails from "../data/blogDetail.json";
+// import recommendedBlogs from "../data/recommendedBlogs.json";
 
 export default function DetailBlog() {
-  const { id } = useParams();
-  const blog = blogDetails.find((item) => item.id === parseInt(id || "0"));
-
+  const { slug } = useParams();
+  const [blog, setBlog] = useState<any | null>(null);
+  const [loading, setLoading] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
   const [showFullContent, setShowFullContent] = useState(false);
-  const [visibleCount, setVisibleCount] = useState(3);
+  const [recommended, setRecomended] = useState<any[]>([]);
+  // const [visibleCount, setVisibleCount] = useState(3);
 
   useEffect(() => {
     const handleResize = () => {
@@ -24,9 +25,44 @@ export default function DetailBlog() {
   }, []);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [id]);
+    const fetchData = async () => {
+      try {
+        if (!slug) return;
 
+        // Fetch detail blog
+        const resDetail = await fetch(
+          `http://127.0.0.1:8000/api/v1/blogs/${slug}`
+        );
+        const dataDetail = await resDetail.json();
+        console.log("API Response Detail:", dataDetail);
+        setBlog(dataDetail.data || null);
+
+        // Fetch semua blog
+        const resBlogs = await fetch(`http://127.0.0.1:8000/api/v1/blogs/`);
+        const dataBlogs = await resBlogs.json();
+
+        let blogs = dataBlogs.data || [];
+        blogs = blogs.filter((b: any) => b.slug !== slug);
+
+        let shuffled = blogs.sort(() => 0.5 - Math.random());
+        setRecomended(shuffled.slice(0, 6));
+      } catch (err) {
+        console.error("Error fetching blog:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [slug]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <p className="text-xl font-semibold text-gray-500">Loading...</p>
+      </div>
+    );
+  }
   if (!blog) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -49,7 +85,7 @@ export default function DetailBlog() {
       <div className="max-w-5xl mx-auto mt-25 pb-16">
         {/* Kategori */}
         <div className="inline-block bg-blue-500 text-white font-semibold text-sm px-3 py-0.5 rounded-full mb-5">
-          {blog.category}
+          {blog.blog_category?.name}
         </div>
 
         {/* Judul */}
@@ -72,7 +108,7 @@ export default function DetailBlog() {
 
         {/* Gambar utama */}
         <img
-          src={blog.image}
+          src={`http://127.0.0.1:8000/storage/${blog.image}`}
           alt={blog.title}
           className="w-full h-auto rounded-lg mb-10"
         />
@@ -92,58 +128,31 @@ export default function DetailBlog() {
           </button>
         )}
 
-        {/* Artikel Rekomendasi */}
+        {/* Artikel Rekomendasi  */}
         <div className="mt-20">
+          <h2 className="text-xl font-bold mb-6">Artikel Rekomendasi</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {recommendedBlogs.slice(0, visibleCount).map((item, index) => {
-              const dummyDate = new Date(2024, 6, 1 + index);
-              const formattedDate = dummyDate.toLocaleDateString("id-ID");
-
-              return (
-                <Link to={`/detailblog/${item.id}`} key={item.id}>
-                  <div className="rounded-xl overflow-hidden">
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="w-full rounded-xl h-50 object-cover"
-                    />
-                    <div className="p-4">
-                      <span className="inline-block text-xs bg-blue-100 text-blue-600 px-2 py-1 rounded-full mb-2">
-                        {item.tag}
-                      </span>
-                      <h3 className="text-lg font-bold leading-snug text-gray-800 mb-1">
-                        {item.title}
-                      </h3>
-                      <p className="text-[10px] text-gray-400">
-                        {formattedDate}
-                      </p>
-                    </div>
+            {recommended.map((item) => (
+              <Link to={`/detailblog/${item.slug}`} key={item.id}>
+                <div className="rounded-xl overflow-hidden shadow hover:shadow-lg transition">
+                  <img
+                    src={`http://127.0.0.1:8000/storage/${item.image}`}
+                    alt={item.title}
+                    className="w-full h-40 object-cover rounded-t-xl"
+                  />
+                  <div className="p-4">
+                    <span className="inline-block text-xs bg-blue-100 text-blue-600 px-2 py-1 rounded-full mb-2">
+                      {item.blog_category?.name}
+                    </span>
+                    <h3 className="text-lg font-bold leading-snug text-gray-800 mb-1">
+                      {item.title}
+                    </h3>
+                    <p className="text-[10px] text-gray-400">{item.date}</p>
                   </div>
-                </Link>
-              );
-            })}
+                </div>
+              </Link>
+            ))}
           </div>
-
-          {recommendedBlogs.length > 3 && (
-            <div className="text-center mt-6">
-              <button
-                onClick={() =>
-                  setVisibleCount(
-                    visibleCount === 3 ? recommendedBlogs.length : 3
-                  )
-                }
-                className="mt-5 text-blue-500 border border-blue-500 rounded-full py-1 px-3 hover:text-white hover:bg-blue-500 font-semibold text-md transition-colors duration-300 ease-in-out"
-              >
-                {visibleCount === 3 ? (
-                  <>
-                    See More <span>→</span>
-                  </>
-                ) : (
-                  <>See Less</>
-                )}
-              </button>
-            </div>
-          )}
         </div>
       </div>
 

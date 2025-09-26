@@ -1,15 +1,31 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "../component/layout/Navbar";
 import Footer from "../component/layout/Footer";
-import blogs from "../data/blogs.json";
+// import blogs from "../data/blogs.json";
 
 const AllBlog = () => {
-  const [activeTag, setActiveTag] = useState("All Topics");
+  const [blogs, setBlogs] = useState<any[]>([]);
+  const [activeTag, setActiveTag] = useState("all");
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const res = await fetch("http://127.0.0.1:8000/api/v1/blogs");
+        const data = await res.json();
+        console.log("API Response: ", data);
+        setBlogs(data.data || []);
+      } catch (err) {
+        console.error("Error fetching blogs: ", err);
+      }
+    };
+
+    fetchBlogs();
+  }, []);
 
   const filteredBlogs =
-    activeTag === "All Topics"
-      ? blogs
-      : blogs.filter((blog) => blog.tag === activeTag);
+    activeTag && activeTag !== "all"
+      ? blogs.filter((blog) => blog.blog_category?.slug === activeTag)
+      : blogs;
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white via-[#f3f8ff] to-[#fff7e0] mt-20 px-6 py-10 md:px-16 lg:px-24">
@@ -50,21 +66,24 @@ const AllBlog = () => {
       {/* Filter & Sort */}
       <div className="flex flex-wrap items-center mt-20 gap-2 mb-8">
         <div className="flex flex-wrap gap-2">
-          {["All Topics", "Frontend", "Backend", "Technology"].map(
-            (tag, idx) => (
-              <button
-                key={idx}
-                onClick={() => setActiveTag(tag)}
-                className={`text-sm px-4 py-2 rounded-full font-semibold transition-all duration-300 ${
-                  activeTag === tag
-                    ? "bg-blue-500 text-white shadow-[0_6px_12px_rgba(59,130,246,0.5),0_-6px_12px_rgba(59,130,246,0.3)]"
-                    : "bg-white text-blue-600 hover:bg-blue-200 shadow-[0_6px_12px_rgba(147,197,253,0.5),0_-6px_12px_rgba(147,197,253,0.3)]"
-                }`}
-              >
-                {tag}
-              </button>
-            )
-          )}
+          {[
+            { label: "All Topics", value: "all" },
+            { label: "Frontend", value: "frontend" },
+            { label: "Backend", value: "backend" },
+            { label: "Technology", value: "technology" },
+          ].map((tag, idx) => (
+            <button
+              key={idx}
+              onClick={() => setActiveTag(tag.value)}
+              className={`text-sm px-4 py-2 rounded-full font-semibold transition-all duration-300 ${
+                activeTag === tag.value
+                  ? "bg-blue-500 text-white shadow-[0_6px_12px_rgba(59,130,246,0.5),0_-6px_12px_rgba(59,130,246,0.3)]"
+                  : "bg-white text-blue-600 hover:bg-blue-200 shadow-[0_6px_12px_rgba(147,197,253,0.5),0_-6px_12px_rgba(147,197,253,0.3)]"
+              }`}
+            >
+              {tag.label}
+            </button>
+          ))}
         </div>
 
         <div className="ml-auto text-sm flex items-center">
@@ -92,18 +111,18 @@ const AllBlog = () => {
 
           return (
             <a
-              href={`/detailblog/${blog.id}`}
+              href={`/detailblog/${blog.slug}`}
               key={index}
               className="rounded-xl overflow-hidden"
             >
               <img
-                src={blog.image}
+                src={`http://127.0.0.1:8000/storage/${blog.image}`}
                 alt={blog.title}
                 className="w-full rounded-xl h-50 object-cover"
               />
               <div className="p-4">
                 <span className="inline-block text-xs bg-blue-100 text-blue-600 px-2 py-1 rounded-full mb-2">
-                  {blog.tag}
+                  {blog.blog_category?.name}
                 </span>
                 <h3 className="text-lg font-bold leading-snug text-gray-800 mb-1">
                   {blog.title}

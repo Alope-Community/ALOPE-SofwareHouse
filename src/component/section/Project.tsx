@@ -1,35 +1,23 @@
-// import React, { useState } from "react";
-
+import { useState, useEffect } from "react";
 import Card from "../element/Card";
 import Button from "../element/Button";
 
 const Project = () => {
-  const projects = [
-    {
-      heading: "Website",
-      title: "Nuteam",
-      desc: "Penyusunan tampilan web yang rapi dan responsif menggunakan teknik CSS modern.",
-      image: "/img/nuteam.png",
-    },
-    {
-      heading: "Mobile",
-      title: "Wedding",
-      desc: "Pengembangan aplikasi mobile lintas platform dengan performa tinggi menggunakan React Native.",
-      image: "/img/invitations.png",
-    },
-    {
-      heading: "Website",
-      title: "Safrenz",
-      desc: "Halaman promosi yang dirancang untuk menarik perhatian dan meningkatkan konversi.",
-      image: "/img/safrenz.png",
-    },
-    {
-      heading: "Mobile",
-      title: "Travel",
-      desc: "Desain antarmuka aplikasi mobile yang estetis, intuitif, dan fokus pada pengalaman pengguna.",
-      image: "/img/travelop.png",
-    },
-  ];
+  const [projects, setProjects] = useState<any[]>([]);
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const response = await fetch(`http://127.0.0.1:8000/api/v1/projects`);
+        const data = await response.json();
+        setProjects(data.data.data || []);
+        console.log("API Response: ", data);
+      } catch (err) {
+        console.error("Error fetching projects:", err);
+      }
+    };
+
+    fetchProjects();
+  }, []);
 
   return (
     <section
@@ -60,14 +48,14 @@ const Project = () => {
           <Button title="See Detail" href="/blogs" />
         </div>
 
-        <div className="hidden sm:grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
             <Card
-              key={index}
-              heading={project.heading}
+              key={project.id || index}
+              heading={project.title}
               title={project.title}
-              desc={project.desc}
-              image={project.image}
+              desc={project.about?.description || ""}
+              image={`http://127.0.0.1:8000/storage/${project.image}`}
             />
           ))}
         </div>
@@ -81,7 +69,7 @@ const Project = () => {
               className="flex-shrink-0 min-w-[280px] w-72 rounded-lg overflow-hidden shadow-lg border border-gray-200 bg-white"
             >
               <img
-                src={project.image}
+                src={`http://127.0.0.1:8000/storage/${project.image}`}
                 alt={project.title}
                 className="w-full h-48 object-cover"
               />
@@ -90,7 +78,7 @@ const Project = () => {
                   {project.title}
                 </h4>
                 <p className="text-gray-600 text-sm mt-2 line-clamp-2">
-                  {project.desc}
+                   {project.about?.description || ""}
                 </p>
               </div>
             </div>

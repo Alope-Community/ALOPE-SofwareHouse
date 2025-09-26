@@ -13,7 +13,7 @@ export default function App() {
         <Route path="/blogs" element={<AllBlog />} />
         <Route path="/explore" element={<Explore />} />
         <Route path="/detail/:id" element={<Detail />} />
-        <Route path="/detailblog/:id" element={<DetailBlog />} />
+        <Route path="/detailblog/:slug" element={<DetailBlog />} />
       </Routes>
     </Router>
   );
