@@ -1,52 +1,37 @@
 import Button from "../element/Button";
 
-
 const Header = () => {
   return (
-    <header
-      className="relative w-full px-0 min-h-screen flex items-center"
-      id="home"
-    >
-      <img
-        src="/img/svg/ungu.svg"
-        className="absolute top-0 left-0 w-full h-full object-cover -z-10"
-        loading="lazy"
-      />
-      <img
-        src="/img/svg/biru.svg"
-        className="absolute top-0 left-0 w-full h-full object-cover -z-10"
-        loading="lazy"
-      />
-      <img
-        src="/img/svg/kuning.svg"
-        className="absolute top-0 left-0 w-full h-full object-cover -z-10"
-        loading="lazy"
-      />
-      <div className="container mx-auto w-full flex flex-col md:flex-row items-center justify-between px-4 sm:px-6 md:px-6 lg:px-8 xl:px-12">
-        <div className="w-full md:w-1/2 text-center sm:text-left  sm:mt-24 lg:mt-28 lg:text-left order-2 md:order-1">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-5xl font-bold text-slate-900 mb-2">
-            Solusi Pembuatan
-          </h2>
-          <p className="text-3xl sm:text-4xl lg:text-5xl xl:text-5xl font-bold text-blue-500 mb-4">
-            Software <span className="text-zinc-950">Anda</span>
+    <header className="relative min-h-[650px] flex items-center justify-center overflow-hidden">
+      <div className="container relative z-10 mx-auto flex flex-col items-center justify-between px-4 md:px-10 lg:flex-row xl:px-10 2xl:px-2">
+        <div className="order-2 lg:order-1 lg:w-1/2 mb-0 md:mb-0 lg:mb-13">
+          <h1 className="mt-5 mb-4 text-center text-3xl font-medium leading-snug md:text-4xl lg:text-left xl:text-6xl">
+            <span className="font-extrabold">Alope</span>
+            <br className="hidden lg:block" />
+            <span className="mt-3 block">
+              <span className="font-bold text-[#2276f0]">Software </span>
+              <span className="font-bold">House</span>
+            </span>
+          </h1>
+
+          <p className="mx-auto mb-6 mt-3 w-full text-center text-sm text-gray-800 md:mx-0 sm:w-[100%] lg:w-[90%] md:text-base lg:text-left xl:w-[85%] xl:text-xl">
+            Kami membantu bisnis Anda berkembang melalui solusi kreatif dan
+            teknologi inovatif. Tenang saja, mari bekerja sama menuju
+            kesuksesan.
           </p>
-          <p className="text-slate-700 text-sm lg:text-xl xl:text-xl mb-6 leading-relaxed">
-            Kami membantu bisnis Anda berkembang melalui{" "}
-            <br className="hidden md:block" />
-            solusi kreatif kami. Tenang saja, mari bekerja sama.
-          </p>
-          <Button
-            title="Explore"
-            className="mb-10 justify-center sm:justify-start"
-            href="/explore"
-          />
+
+          <div className="mt-2 flex justify-center gap-5 lg:justify-start">
+            <Button title="Start Now" href="#service" />
+          </div>
         </div>
 
-        <div className="w-full md:w-1/2 flex justify-center order-1 md:order-2 mt-20 lg:mt-0 md:mb-0 px-0">
+         <div className="relative order-1 lg:order-2 lg:w-1/2 flex justify-center">
           <img
-            src="/img/logo.png"
-            alt="company profile"
-            className="mx-auto w-[300px]  md:mb-24 lg:mb-0 md:w-[330px] lg:w-[400px] xl:w-[450px] object-cover"
+            src="/img/img-mockup.png"
+            alt="Alope Software Mockup"
+            
+            className="mx-auto w-[80%] sm:w-[70%] md:w-[60%] lg:w-full h-auto rounded-xl object-cover transition-transform duration-700 hover:scale-105"
+            loading="lazy"
           />
         </div>
       </div>

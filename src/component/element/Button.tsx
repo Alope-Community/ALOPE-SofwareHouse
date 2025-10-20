@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import ArrowRight from "../icons/ArrowRight";
 
 type ButtonProps = {
@@ -25,18 +24,19 @@ const Button = ({ title, href = "/", className = "" }: ButtonProps) => {
         <a
           href={href}
           onClick={handleScrollToHash}
-          className="group flex items-center gap-10 text-sm sm:text-base px-8 py-2 border border-blue-600 text-blue-600 rounded-full font-medium bg-white shadow-md ring-1 ring-blue-300/40 hover:bg-blue-600 hover:text-white transition duration-300">
+          className="group flex items-center gap-2 text-sm sm:text-base px-4 py-1.5 border border-blue-600 text-blue-600 rounded-full font-medium bg-white shadow-md ring-1 ring-blue-300/40 hover:bg-blue-600 hover:text-white transition duration-300"
+        >
           {title}
           <ArrowRight />
         </a>
       ) : (
-        <Link
-          to={href}
-          className="group flex items-center gap-10 text-sm sm:text-base px-8 py-2 border border-blue-600 text-blue-600 rounded-full font-medium bg-white shadow-md ring-1 ring-blue-300/40 hover:bg-blue-600 hover:text-white transition duration-300"
+        <a
+          href={href}
+          className="group flex items-center gap-2 text-sm sm:text-base px-4 py-1.5 border border-blue-600 text-blue-600 rounded-full font-medium bg-white shadow-md ring-1 ring-blue-300/40 hover:bg-blue-600 hover:text-white transition duration-300"
         >
           {title}
           <ArrowRight />
-        </Link>
+        </a>
       )}
     </div>
   );

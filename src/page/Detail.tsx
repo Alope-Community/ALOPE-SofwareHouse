@@ -32,9 +32,35 @@ const Detail = () => {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center min-h-screen">
-        Loading...
-      </div>
+      <>
+        <Navbar />
+        <div className="min-h-[60vh] flex flex-col items-center justify-center p-8">
+          <svg
+            className="animate-spin h-8 w-8 text-blue-600"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <circle
+              className="opacity-25"
+              cx="12"
+              cy="12"
+              r="10"
+              stroke="currentColor"
+              strokeWidth="4"
+            ></circle>
+            <path
+              className="opacity-75"
+              fill="currentColor"
+              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+            ></path>
+          </svg>
+          <p className="mt-4 text-lg font-semibold text-gray-600">
+            Loading Detail...
+          </p>
+        </div>
+        <Footer />
+      </>
     );
   }
   if (!project) return <div>Project not found</div>;
@@ -43,21 +69,15 @@ const Detail = () => {
     <>
       <Navbar />
       <div className="relative z-0">
-        <img
-          src="/img/svg/Vector-12.svg"
-          className="absolute top-[20px] left-0 w-[350px] sm:w-[500px] lg:w-[700px] xl:w-[800px] max-w-none pointer-events-none z-0"
-          alt="Blue Decoration"
-          loading="lazy"
-        />
-        <div className="relative z-10 container mx-auto px-4 sm:px-8 md:px-16 lg:px-24 overflow-hidden">
-          <div className="mt-10 py-10 space-y-10">
+        <div className="relative z-10 container mx-auto px-4 sm:px-8 md:px-16 lg:px-20 overflow-hidden">
+          <div className="mt-15 py-10 space-y-10">
             <div
               onClick={() => window.history.back()}
               className="inline-flex items-center space-x-1 border border-[#5998F4] text-[#5998F4] hover:text-blue-800 text-xs sm:text-sm px-2 py-0.5 sm:px-3 sm:py-1 rounded-full cursor-pointer"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-3 w-3 sm:h-4 sm:w-4"
+                className="h-3 w-3 sm:h-5  sm:w-5"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -72,7 +92,7 @@ const Detail = () => {
               <span>Go Back</span>
             </div>
             <div className="text-center mt-6">
-              <h1 className="inline-block text-xl sm:text-3xl lg:text-4xl font-bold border-b-2 border-[#5998F4] pb-2">
+              <h1 className="inline-block text-xl sm:text-3xl lg:text-4xl font-bold border-b-2 border-blue-500 pb-2">
                 {project.title}
               </h1>
             </div>
@@ -82,7 +102,7 @@ const Detail = () => {
                   ([key, value], index) => (
                     <div
                       key={index}
-                      className="flex flex-col items-center border-b-2 border-[#5998F4] px-2 w-fit pb-2"
+                      className="flex flex-col items-center border-b-2 border-blue-500 px-2 w-fit pb-2"
                     >
                       <div className="capitalize">{key}</div>
                       <div className="font-semibold mt-2">
@@ -104,15 +124,24 @@ const Detail = () => {
               </div>
             </div>
 
-            <div className="bg-gradient-to-b from-[#5998F4] to-[#C8DDFB] p-4 pb-0 rounded-xl mt-10 hidden sm:block">
+            <div className="mx-auto max-w-[100%] sm:max-w-5xl md:max-w-6xl px-3 sm:px-6 lg:px-8 mt-10 md:mt-16">
               <img
                 src={`http://127.0.0.1:8000/storage/${project.image}`}
-                alt="Main Project"
-                className="mx-auto w-full max-w-6xl object-cover mb-0"
+                alt={project.title}
+                className="
+                  w-full 
+                  h-[35vh] sm:h-[40vh] md:h-[55vh] lg:h-[70vh]
+                  object-cover 
+                  rounded-xl 
+                  shadow-lg md:shadow-xl hover:shadow-2xl 
+                  transition-all duration-500 ease-in-out 
+                  transform hover:scale-[1.01]
+                "
+                loading="lazy"
               />
             </div>
 
-            <p className="border-b-2 border-[#5998F4] w-40 sm:w-60 mx-auto mt-4 mb-6 hidden sm:block"></p>
+            <p className="border-b-3 border-blue-500 w-40 sm:w-60 mx-auto mt-4 mb-6 hidden sm:block"></p>
             <SectionGrid
               items={[
                 project.about && {
@@ -133,22 +162,6 @@ const Detail = () => {
               ].filter(Boolean)}
             />
           </div>
-        </div>
-        <div className="relative h-[100px] overflow-visible">
-          <img
-            src="/img/svg/Vector-11.svg"
-            className="absolute top-[-1000%] right-0 w-[350px] sm:w-[400px] md:w-[500px] lg:w-[600px] xl:w-[700px] max-w-none pointer-events-none"
-            alt="Yellow Decoration"
-            loading="lazy"
-          />
-        </div>
-        <div className="relative mt-20">
-          <img
-            src="/img/svg/Vector-13.svg"
-            className="absolute bottom-[-30px] sm:bottom-[-130px] md:bottom-[-140px] lg:bottom-[-150px] left-0 w-[350px] sm:w-[400px] md:w-[600px] lg:w-[700px] xl:w-[800px] max-w-none pointer-events-none"
-            alt="Purple Decoration"
-            loading="lazy"
-          />
         </div>
       </div>
 

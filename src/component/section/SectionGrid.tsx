@@ -1,41 +1,64 @@
-
 const SectionGrid = ({ items }: { items: any[] }) => (
   <>
     {items.map((section, index) => (
       <div
         key={index}
-        className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-10 mt-10"
+        className="grid grid-cols-1 lg:grid-cols-2 items-center gap-10 md:gap-16 my-16 md:my-20"
       >
         {index % 2 === 0 ? (
           <>
-            <div className="space-y-4 order-2 lg:order-1 w-full">
-              <h2 className="text-lg sm:text-xl lg:text-2xl font-bold">{section.title}</h2>
-              <p className="text-gray-600 text-justify text-sm sm:text-base">{section.description}</p>
+            <div className="order-2 lg:order-1 space-y-4 text-left sm:text-center lg:text-left px-4 sm:px-6">
+              <h2 className="text-lg sm:text-2xl lg:text-3xl font-bold border-b-4 border-blue-500 inline-block pb-1">
+                {section.title}
+              </h2>
+              <p className="text-gray-600 text-sm sm:text-base lg:text-lg leading-relaxed">
+                {section.description}
+              </p>
             </div>
-            <div className="w-full order-1 lg:order-2">
-              <div className="bg-gradient-to-b from-[#5998F4] to-[#C8DDFB] p-4 rounded-xl pb-0">
-                <img
-                  src={section.image}
-                  alt="Project Detail"
-                  className="rounded-t-md w-[500px] h-[280px] mt-8 mb-0 object-cover mx-auto"
-                />
-              </div>
+
+            <div className="order-1 lg:order-2 flex justify-center">
+              <img
+                src={section.image}
+                alt="Project Detail"
+                loading="lazy"
+                className="
+                  w-full max-w-[600px]
+                  h-[200px] md:h-[300px]
+                  rounded-2xl
+                  shadow-lg hover:shadow-xl
+                  transition-transform duration-500 ease-in-out
+                  hover:scale-105
+                  bg-transparent
+                "
+              />
             </div>
           </>
         ) : (
           <>
-            <div className="w-full">
-              <div className="bg-gradient-to-b from-[#5998F4] to-[#C8DDFB] p-4 rounded-xl pb-0">
-                <img
-                  src={section.image}
-                  alt="Project Detail"
-                  className="rounded-t-md w-[500px] h-[280px] mt-8 mb-0 object-cover mx-auto"
-                />
-              </div>
+            <div className="flex justify-center">
+              <img
+                src={section.image}
+                alt="Project Detail"
+                loading="lazy"
+                className="
+                  w-full max-w-[600px]
+                  h-[200px] md:h-[300px]  lg:h-[300px]
+                  rounded-2xl
+                  shadow-lg hover:shadow-xl
+                  transition-transform duration-500 ease-in-out
+                  hover:scale-105
+                  bg-transparent
+                "
+              />
             </div>
-            <div className="space-y-4 w-full">
-              <h2 className="text-lg sm:text-xl lg:text-2xl font-bold">{section.title}</h2>
-              <p className="text-gray-600 text-justify text-sm sm:text-base">{section.description}</p>
+
+            <div className="order-2 lg:order-1 space-y-4 text-left sm:text-center lg:text-left px-4 sm:px-6">
+              <h2 className="text-lg sm:text-2xl lg:text-3xl font-bold border-b-4 border-blue-500 inline-block pb-1">
+                {section.title}
+              </h2>
+              <p className="text-gray-600 text-sm sm:text-base lg:text-lg leading-relaxed">
+                {section.description}
+              </p>
             </div>
           </>
         )}
